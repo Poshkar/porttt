@@ -229,8 +229,9 @@ section{padding:9rem 5rem;position:relative}
 
 /* ============ ABOUT ============ */
 .about-wrap{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:6rem;align-items:start;margin-top:5rem;
+  display:grid;grid-template-columns:1fr;
+  gap:3rem;align-items:start;margin-top:5rem;
+  max-width:780px;
 }
 .about-desc{
   font-size:1.05rem;color:var(--soft);
@@ -757,6 +758,50 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
 }
 .nav-overlay.show{display:block}
 
+/* ============ TAGLINE STRIP ============ */
+.tagline-strip{
+  position:relative;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:4.5rem 5rem;
+  overflow:hidden;
+}
+.tagline-strip::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--lime2) 0%,transparent 60%);
+  pointer-events:none;
+}
+.tagline-strip-inner{
+  position:relative;
+  display:flex;align-items:center;gap:1.5rem;
+  max-width:900px;
+}
+.tagline-strip-mark{
+  font-family:'Bebas Neue',cursive;
+  font-size:5rem;
+  color:var(--lime);
+  line-height:0.8;
+  opacity:0.5;
+  flex-shrink:0;
+}
+.tagline-strip-text{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  letter-spacing:0.04em;
+  color:var(--text);
+  line-height:1.15;
+}
+.tagline-strip-text em{
+  color:var(--lime);
+  font-style:normal;
+}
+@media(max-width:768px){
+  .tagline-strip{padding:3rem 1.5rem}
+  .tagline-strip-mark{font-size:3.5rem}
+}
+
 /* ============ ANIMATIONS ============ */
 @keyframes slideIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes panelIn{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
@@ -771,7 +816,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   section{padding:7rem 3rem}
   .hero{padding:7rem 2rem 6rem}
   .hero-bigname{font-size:clamp(4.5rem,9vw,8rem)}
-  .about-wrap{gap:3rem}
+
   .skills-arena{grid-template-columns:1fr}
   .skills-side{flex-direction:row;flex-wrap:wrap}
   .soft-block{min-width:160px}
@@ -828,7 +873,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   .hero-index{font-size:4rem;top:5rem;right:1rem}
 
   /* about */
-  .about-wrap{grid-template-columns:1fr;gap:2.5rem}
+
   .about-tagline{font-size:2rem}
   .about-desc{font-size:0.95rem}
 
@@ -1005,6 +1050,15 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   </div>
 </section>
 
+<!-- ======== TAGLINE STRIP ======== -->
+<div class="tagline-strip">
+  <div class="tagline-strip-inner">
+    <span class="tagline-strip-mark">"</span>
+    <span class="tagline-strip-text">Data is the new oil — and I know how to <em>refine</em> it.</span>
+    <span class="tagline-strip-mark">"</span>
+  </div>
+</div>
+
 <!-- ======== ABOUT ======== -->
 <section id="about">
   <div class="sec-label reveal">About Me</div>
@@ -1015,17 +1069,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
       <p>My toolkit spans <strong>Python, SQL, Excel, and YOLOv6</strong>. I've built a live intruder-detection system using computer vision and shipped a full campus marketplace called UniCore. I believe data without context is just noise — my job is to find the signal.</p>
       <p>Outside of code, I'm a <span class="hl">national-level competitive swimmer</span> who represented Delhi at the National Games. That chapter taught me that grit, consistency, and a refusal to settle are skills you carry into every discipline.</p>
     </div>
-    <div class="about-right reveal">
-      <div class="about-tagline">"Data is the new oil — and I know how to <em>refine</em> it."</div>
-      <div class="info-rows">
-        <div class="info-row"><span class="info-icon">📍</span><span class="info-key">Location</span><span class="info-val">Gurgaon, Haryana</span></div>
-        <div class="info-row"><span class="info-icon">📧</span><span class="info-key">Email</span><span class="info-val"><a href="mailto:poshkargarg@gmail.com">poshkargarg@gmail.com</a></span></div>
 
-        <div class="info-row"><span class="info-icon">🔗</span><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://linkedin.com/in/poshkar-garg" target="_blank">poshkar-garg</a></span></div>
-        <div class="info-row"><span class="info-icon">🎓</span><span class="info-key">Degree</span><span class="info-val">B.Tech CS · 2024–2028</span></div>
-        <div class="info-row"><span class="info-icon">🏢</span><span class="info-key">Current</span><span class="info-val">Lysandra Group of Cos.</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
