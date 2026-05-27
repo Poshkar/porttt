@@ -9,15 +9,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#050508;
-  --surface:#0c0c12;
-  --card:#111120;
-  --card2:#161628;
-  --border:rgba(255,255,255,0.06);
-  --border2:rgba(255,255,255,0.12);
+  --ink:#12111a;
+  --surface:#1a1927;
+  --card:#201f30;
+  --card2:#272538;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.14);
   --text:#eeeef5;
-  --muted:#7070a0;
-  --soft:#a0a0c8;
+  --muted:#7878a8;
+  --soft:#a8a8cc;
   --lime:#c8f03c;
   --lime2:rgba(200,240,60,0.12);
   --lime3:rgba(200,240,60,0.05);
@@ -211,32 +211,32 @@ nav::after{content:'';position:absolute;bottom:0;left:3rem;right:3rem;height:1px
 }
 
 /* ============ SHARED ============ */
-section{padding:7rem 3rem;position:relative}
+section{padding:9rem 5rem;position:relative}
 .sec-label{
   font-family:'JetBrains Mono',monospace;
   font-size:0.7rem;color:var(--lime);
   letter-spacing:0.25em;text-transform:uppercase;
   display:flex;align-items:center;gap:0.75rem;
-  margin-bottom:1rem;
+  margin-bottom:1.2rem;
 }
 .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .sec-title{
   font-family:'Bebas Neue',cursive;
   font-size:clamp(2.5rem,5vw,4.5rem);
   letter-spacing:0.03em;line-height:1;
-  margin-bottom:0.5rem;
+  margin-bottom:1rem;
 }
 
 /* ============ ABOUT ============ */
 .about-wrap{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:5rem;align-items:start;margin-top:4rem;
+  gap:6rem;align-items:start;margin-top:5rem;
 }
 .about-desc{
   font-size:1.05rem;color:var(--soft);
-  line-height:1.85;
+  line-height:2;
 }
-.about-desc p{margin-bottom:1.25rem}
+.about-desc p{margin-bottom:1.6rem}
 .about-desc strong{color:var(--text);font-weight:500}
 .about-desc .hl{
   color:var(--lime);
@@ -254,10 +254,10 @@ section{padding:7rem 3rem;position:relative}
   color:var(--text);
 }
 .about-tagline em{color:var(--lime);font-style:normal}
-.info-rows{margin-top:2rem}
+.info-rows{margin-top:2.5rem}
 .info-row{
   display:flex;align-items:center;gap:1rem;
-  padding:0.9rem 0;
+  padding:1.1rem 0;
   border-bottom:1px solid var(--border);
   font-size:0.88rem;
 }
@@ -571,25 +571,25 @@ footer span{color:var(--lime)}
 }
 .orb1{
   width:700px;height:700px;
-  background:radial-gradient(circle,rgba(200,240,60,0.22) 0%,transparent 65%);
+  background:radial-gradient(circle,rgba(200,240,60,0.10) 0%,transparent 65%);
   top:-12%;left:-12%;
   animation:orbFloat1 18s ease-in-out infinite;
 }
 .orb2{
   width:600px;height:600px;
-  background:radial-gradient(circle,rgba(0,212,255,0.16) 0%,transparent 65%);
+  background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 65%);
   top:30%;right:-10%;
   animation:orbFloat2 22s ease-in-out infinite;
 }
 .orb3{
   width:500px;height:500px;
-  background:radial-gradient(circle,rgba(200,240,60,0.16) 0%,transparent 65%);
+  background:radial-gradient(circle,rgba(200,240,60,0.07) 0%,transparent 65%);
   bottom:8%;left:15%;
   animation:orbFloat3 26s ease-in-out infinite;
 }
 .orb4{
   width:400px;height:400px;
-  background:radial-gradient(circle,rgba(255,107,53,0.13) 0%,transparent 65%);
+  background:radial-gradient(circle,rgba(255,107,53,0.06) 0%,transparent 65%);
   top:55%;left:48%;
   animation:orbFloat4 20s ease-in-out infinite;
 }
@@ -612,17 +612,17 @@ footer span{color:var(--lime)}
   0%,100%{transform:translate(0,0) scale(1)}
   50%{transform:translate(-120px,-60px) scale(1.15)}
 }
-/* DOT GRID — the main hero effect */
+/* DOT GRID — subtle background texture */
 #bg-dots{
   position:fixed;top:0;left:0;width:100%;height:100%;
   z-index:0;pointer-events:none;
-  background-image:radial-gradient(circle, rgba(200,240,60,0.55) 1.5px, transparent 1.5px);
-  background-size:28px 28px;
-  animation:dotsBreath 5s ease-in-out infinite;
+  background-image:radial-gradient(circle, rgba(200,240,60,0.12) 1px, transparent 1px);
+  background-size:36px 36px;
+  animation:dotsBreath 7s ease-in-out infinite;
 }
 @keyframes dotsBreath{
-  0%,100%{opacity:0.7}
-  50%{opacity:1}
+  0%,100%{opacity:0.35}
+  50%{opacity:0.55}
 }
 /* scanline overlay for texture */
 #bg-scan{
@@ -768,7 +768,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
 @media(max-width:1024px){
   nav{padding:1rem 2rem}
   nav::after{left:2rem;right:2rem}
-  section{padding:6rem 2rem}
+  section{padding:7rem 3rem}
   .hero{padding:7rem 2rem 6rem}
   .hero-bigname{font-size:clamp(4.5rem,9vw,8rem)}
   .about-wrap{gap:3rem}
@@ -815,7 +815,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   }
 
   /* sections */
-  section{padding:5rem 1.25rem}
+  section{padding:6rem 1.5rem}
   .hero{padding:6rem 1.25rem 5rem;text-align:center}
 
   /* hero */
@@ -893,10 +893,10 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   /* footer */
   footer{padding:1.25rem;flex-direction:column;gap:0.4rem;text-align:center;font-size:0.65rem}
 
-  /* reduce bg effects for perf */
+  /* bg effects on mobile */
   #bg-dots{
-    background-image:radial-gradient(circle, rgba(200,240,60,0.65) 1.8px, transparent 1.8px);
-    background-size:24px 24px;
+    background-image:radial-gradient(circle, rgba(200,240,60,0.22) 1.2px, transparent 1.2px);
+    background-size:26px 26px;
   }
   .orb{filter:blur(70px)}
 }
