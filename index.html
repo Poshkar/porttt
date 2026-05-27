@@ -734,6 +734,49 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
 }
 .proj-card:hover .proj-num{color:rgba(200,240,60,0.08)}
 
+/* Mobile sidebar — separate element outside nav */
+.nav-mobile-sidebar{
+  display:none;
+  position:fixed;top:0;right:-100%;
+  width:72vw;max-width:300px;height:100vh;
+  background:#1a1927;
+  border-left:2px solid rgba(200,240,60,0.25);
+  flex-direction:column;align-items:flex-start;
+  justify-content:center;gap:0;
+  padding:5rem 2rem 2rem;
+  z-index:9999;
+  transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-mobile-sidebar.open{right:0}
+.nav-mobile-sidebar a{
+  display:block;
+  width:100%;
+  font-size:1.1rem;
+  color:#eeeef5;
+  padding:1.1rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  letter-spacing:0.12em;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Outfit',sans-serif;
+  font-weight:500;
+  transition:color 0.2s,padding-left 0.2s;
+}
+.nav-mobile-sidebar a:hover{color:#c8f03c;padding-left:0.5rem}
+.nav-mobile-sidebar a.nav-cta{
+  margin-top:1.5rem;
+  border-bottom:none;
+  background:#c8f03c;
+  color:#050508 !important;
+  padding:0.85rem 1.5rem;
+  border-radius:3px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-align:center;
+  width:auto;
+}
+.nav-mobile-sidebar a.nav-cta:hover{padding-left:0;background:#d4f54a}
+
 /* ============ HAMBURGER NAV ============ */
 .nav-hamburger{
   display:none;
@@ -833,31 +876,9 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
   nav{padding:1rem 1.25rem;background:rgba(5,5,8,0.95);backdrop-filter:blur(12px)}
   nav::after{left:1.25rem;right:1.25rem}
   .nav-hamburger{display:flex}
-  .nav-right{
-    position:fixed;top:0;right:-100%;
-    width:72vw;max-width:280px;height:100dvh;
-    background:var(--surface);
-    border-left:1px solid var(--border2);
-    flex-direction:column;align-items:flex-start;
-    justify-content:center;gap:0;
-    padding:5rem 2rem 2rem;
-    z-index:199;
-    transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
-  }
-  .nav-right.open{right:0}
-  .nav-right a{
-    width:100%;font-size:1rem;padding:1rem 0;
-    border-bottom:1px solid var(--border);
-    letter-spacing:0.1em;
-  }
-  .nav-right a:last-child{border-bottom:none;margin-top:1.5rem}
-  .nav-cta{
-    display:inline-block!important;
-    width:auto!important;
-    padding:0.75rem 1.5rem!important;
-    border-radius:3px;
-    text-align:center;
-  }
+  #nav-links-desktop{display:none !important}
+  .nav-mobile-sidebar{display:flex}
+  .nav-right{display:none}
 
   /* sections */
   section{padding:6rem 1.5rem}
@@ -976,17 +997,25 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-logo">P·G</div>
-  <div class="nav-right" id="nav-links">
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#skills" onclick="closeMenu()">Skills</a>
-    <a href="#timeline" onclick="closeMenu()">Journey</a>
-    <a href="#projects" onclick="closeMenu()">Projects</a>
-    <a href="#contact" class="nav-cta" onclick="closeMenu()">Hire Me</a>
+  <div class="nav-right" id="nav-links-desktop">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#timeline">Journey</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-cta">Hire Me</a>
   </div>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+<!-- Mobile sidebar — outside nav so fixed positioning works correctly -->
+<div class="nav-mobile-sidebar" id="nav-links">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#timeline" onclick="closeMenu()">Journey</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#contact" class="nav-cta" onclick="closeMenu()">Hire Me</a>
+</div>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 
 <!-- ======== HERO ======== -->
@@ -1335,7 +1364,7 @@ nav,section,.hero,.hero *,footer{position:relative;z-index:2}
 <script>
 // ============ HAMBURGER MENU ============
 const hamburger = document.getElementById('nav-hamburger');
-const navLinks  = document.getElementById('nav-links');
+const navLinks  = document.getElementById('nav-links'); // mobile sidebar
 const navOverlay = document.getElementById('nav-overlay');
 function openMenu(){
   hamburger.classList.add('open');
